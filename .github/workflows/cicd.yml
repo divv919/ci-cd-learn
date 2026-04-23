@@ -1,0 +1,32 @@
+name: Deployment
+on: 
+    push:
+        branches:
+            - master
+
+jobs:
+    deploy:
+        name: test cicd
+        runs-on:
+            ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v6
+            - name: run ls scripts
+              run: |
+                echo "Current directory:"
+                pwd
+                
+                echo "Files"
+                ls -la
+
+                echo "Git Branch"
+                git branch
+
+                echo "last commit"
+                git log -1
+
+                echo "Remote"
+                git remote -v
+            
+                echo "github ref"
