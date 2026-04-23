@@ -6,11 +6,12 @@ export const app = express();
 
 app.use(cors());
 
-app.use("/pid" , (req,res)=>{
+app.get("/pid" , (req,res)=>{
     res.status(200).json({"message" : "PID is "+ process.pid})
 })
 
-app.use("/cpu-intensive/:x" , (req,res)=>{
+
+app.get("/cpu-intensive/:x" , (req,res)=>{
     const x = req.params.x ? Number(req.params.x) : 0;
     
     let sum = 0
@@ -19,6 +20,10 @@ app.use("/cpu-intensive/:x" , (req,res)=>{
         sum += i
     }
     res.status(200).json({message : "Summation is ", sum})
+})
+
+app.get("/health" , (req ,res)=>{
+  return res.status(200).json({message : "OK"})
 })
 
 
