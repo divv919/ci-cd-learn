@@ -5,8 +5,7 @@ on:
             - master
 
 jobs:
-    deploy:
-        name: test cicd
+    test-cicd:
         runs-on:
             ubuntu-latest
         steps:
@@ -29,4 +28,6 @@ jobs:
                 echo "Remote"
                 git remote -v
             
-                echo "github ref"
+                echo "github ref: $GITHUB_REF"
+                echo "sha: $GITHUB_SHA"
+                echo "Event name: $GITHUB_EVENT_NAME"
