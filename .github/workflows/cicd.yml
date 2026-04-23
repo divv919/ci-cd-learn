@@ -57,4 +57,4 @@ jobs:
                     docker pull divv919/bun-express:${{ github.sha }}
                     docker stop test-app || true
                     docker rm test-app || true
-                    docker run -p 3000:3000 -d -name test-app divv919/bun-express:${{ github.sha }}
+                    docker run -p 3000:3000 -d --name test-app divv919/bun-express:${{ github.sha }}
